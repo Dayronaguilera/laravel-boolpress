@@ -1,0 +1,23 @@
+.card-body{
+    hr{
+        width: 100%;
+        color: black;
+    }
+    .cont-img{
+        text-align: center;
+        font-size: 20px;
+        font-weight: bold;
+    }
+    .cont-text{
+        p:nth-child(3){
+            font-weight: bold;
+            font-size: 20px;
+            display: inline-block;
+            
+        }
+        p:nth-child(4){
+            display: inline-block;
+            margin-left: 5px;
+        }
+    }
+}
