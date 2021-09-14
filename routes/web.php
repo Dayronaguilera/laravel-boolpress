@@ -21,4 +21,4 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home'); //colleghiamo HomeController
 
-Route::resources('posts', 'PostController'); //colleghiamo PostController
+Route::resource('posts', 'PostController'); //colleghiamo PostController

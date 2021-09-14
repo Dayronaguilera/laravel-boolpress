@@ -23,8 +23,7 @@ class PostsTableSeeder extends Seeder
             $postObject->author = $faker->firstName();
             $postObject->created_at = $faker->dateTime();
             $postObject->updated_at = $faker->dateTime();
-            $postObject->save();
-            
+            $postObject->save();   
         }
     }
 }

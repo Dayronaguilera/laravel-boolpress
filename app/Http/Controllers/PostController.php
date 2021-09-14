@@ -12,10 +12,10 @@ class PostController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index() 
     {
         $Posts = Post::all(); // creiamo una variabile che prenda tutti i post nel db
-        return view('posts.index',compact('Posts')); // e inviamo i dati presi nel db al tamplate che ci serve
+        return view('posts.index', compact('Posts')); // e inviamo i dati presi nel db al tamplate che ci serve
         
     }
 
@@ -46,9 +46,10 @@ class PostController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($id) // riceviamo id dal index
     {
-        //
+        $Post = Post::find($id); // creiamo una variabile per l'id
+        return view('posts.show', compact('Post')); // e la mandiamo al nostro shoe (single post)
     }
 
     /**
