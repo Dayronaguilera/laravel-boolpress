@@ -4,7 +4,7 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="offset-2 col-8">
-            <form class="container-form" action="{{route('posts.store')}}" method="Post">
+            <form class="container-form" action="{{ route('posts.store')}}" method="POST">
             @csrf
                 <label for="title"></label>
                 <input class="m-3" type="text" name="title" id="title" placeholder="Title">

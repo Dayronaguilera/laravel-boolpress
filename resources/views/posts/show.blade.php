@@ -5,7 +5,7 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">{{ __('Dashboard') }}</div>
+                <div class="card-header">{{ __('Dashboard') }} <i class="fas fa-undo"></i></div>
 
                 <div class="card-body">
                     @if (session('status'))
@@ -24,6 +24,7 @@
                             <h1>{{$Post->title}}</h1>
                             <p>{{$Post->content}}</p>
                             <p>{{$Post->created_at}}</p> 
+                            <p>Rispondi</p>
                         </div>
                         <hr>
                        

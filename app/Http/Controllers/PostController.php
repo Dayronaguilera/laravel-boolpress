@@ -37,7 +37,18 @@ class PostController extends Controller
      */
     public function store(Request $request) // prendiamo i dati inseriti dall'utente e li salviamo nel db
     {
-        dd($request);
+        //dd($request);
+        $data = $request->all(); // ritorna tutti i valori del form in un array associativo
+
+        $post = new Post(); // ridefiniamo le tabelle nel nostro db 
+        $post->title = $data['title'];
+        $post->content = $data['content'];
+        $post->image = $data['img'];
+        $post->author = $data['name'];
+        $post->save(); // salva tutto nel db
+
+        // dd('fatto');
+        return redirect()->route('posts.show', $post->id); // ci riporta al post appena inserito
     }
 
     /**
@@ -46,7 +57,7 @@ class PostController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id) // riceviamo id dal index template
+    public function show($id) // riceviamo id dal index / create template
     {
         $Post = Post::find($id); // creiamo una variabile per l'id che riceviamo dal template
         return view('posts.show', compact('Post')); // e la mandiamo al nostro show (single post)
