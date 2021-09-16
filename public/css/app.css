@@ -11414,3 +11414,20 @@ body {
   display: inline-block;
   margin-left: 5px;
 }
+
+body {
+  color: white;
+}
+
+.container-form {
+  text-align: center;
+}
+.container-form input {
+  width: 70%;
+}
+.container-form input:nth-last-child(1) {
+  width: 15%;
+}
+.container-form textarea {
+  width: 70%;
+}

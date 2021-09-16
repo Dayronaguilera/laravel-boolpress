@@ -19,7 +19,11 @@
             <td>{{$post->author}}</td>
             <td>{{$post->created_at}}</td>
             <td>{{$post->title}}</td>
-            <td><a href="{{ route('posts.show', $post)}}"><i class="bi bi-zoom-in"></i></a></td>
+            <td>
+                <a href="{{ route('posts.show', $post)}}"> <!-- linkiamo la nostra show da inviare l'id al controller-->
+                    <i class="bi bi-zoom-in"></i>
+                </a>
+            </td>
             
         </tr>
     @endforeach

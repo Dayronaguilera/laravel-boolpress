@@ -12,3 +12,21 @@
 
 @import 'home';
 
+body{
+    color:white;
+    
+}
+
+.container-form{
+    text-align: center;
+
+    & input{
+        width: 70%;
+        &:nth-last-child(1){
+            width: 15%;
+        }
+    }
+    & textarea{
+        width: 70%;
+    }
+}
