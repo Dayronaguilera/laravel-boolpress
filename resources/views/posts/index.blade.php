@@ -21,7 +21,8 @@
             <td>{{$post->title}}</td>
             <td>
                 <a href="{{ route('posts.show', $post)}}"> <!-- linkiamo la nostra show da inviare l'id al controller-->
-                    <i class="far fa-hand-point-left"></i>
+                    <i class="bi bi-zoom-in"></i>
+
                 </a>
             </td>
             
