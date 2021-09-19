@@ -10,7 +10,7 @@
                 <input class="m-3" type="text" name="title" id="title" placeholder="Title">
                 <br>
                 <label for="content"></label>
-                <textarea rows="3" class="m-3" type="text" name="content" id="content" placeholder="Text Area"></textarea>
+                <textarea rows="5" class="m-3" type="text" name="content" id="content" placeholder="Text Area"></textarea>
                 <br>
                 <label for="img"></label>
                 <input class="m-3" type="text" name="img" id="img" placeholder="Picture">

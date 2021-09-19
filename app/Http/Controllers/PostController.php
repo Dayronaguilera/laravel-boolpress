@@ -12,7 +12,7 @@ class PostController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(){ // mandiamo i dati alla index
+    public function index(){ // mandiamo i dati alla index ps:visualizza i dati del db
 
         $Posts = Post::all(); // creiamo una variabile che prenda tutti i post nel db
         return view('posts.index', compact('Posts')); // e inviamo i dati presi nel db al tamplate.blade
@@ -24,7 +24,7 @@ class PostController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create() // prendiamo i dati inseriti dall'utente
+    public function create() // prendiamo i dati inseriti dall'utente ps: prende i dati inseriti dall'utente e li crea
     {
        return view('posts.create'); // colleghiamo il nostro templates.blade
     }
@@ -35,7 +35,7 @@ class PostController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request) // prendiamo i dati inseriti dall'utente e li salviamo nel db
+    public function store(Request $request) // prendiamo i dati inseriti dall'utente e li salviamo nel db ps: invia i dati dell'utente del db
     {
         //dd($request);
         $data = $request->all(); // ritorna tutti i valori del form in un array associativo
@@ -59,8 +59,8 @@ class PostController extends Controller
      */
     public function show($id) // riceviamo id dal index / create template
     {
-        $Post = Post::find($id); // creiamo una variabile per l'id che riceviamo dal template
-        return view('posts.show', compact('Post')); // e la mandiamo al nostro show (single post)
+        $post = Post::find($id); // creiamo una variabile per l'id che riceviamo dal template
+        return view('posts.show', compact('post')); // e la mandiamo al nostro show (single post)
     }
 
     /**
@@ -69,9 +69,10 @@ class PostController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Post $post) // si collega in modo automatico e prende l'id ps:visualiziamo dei dati gia esistenti nel db
     {
-        //
+        return view('posts.edit', compact('post')); // invio l'ogetto gia  popolato
+        
     }
 
     /**
@@ -81,9 +82,17 @@ class PostController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
-    {
-        //
+    public function update(Request $request,Post $post){
+        
+        $data = $request->all(); // prendiamo tutti i dati del db
+
+        $post->title = $data['title'];
+        $post->content = $data['content'];
+        $post->image = $data['img'];
+        $post->author = $data['name'];
+        $post->save(); // ridefiniamo le modifiche che andranno nel db
+
+        return redirect()->route('posts.show', $post);
     }
 
     /**
@@ -92,8 +101,10 @@ class PostController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Post $post)
     {
-        //
+        $post->delete();
+
+        return redirect()->route('posts.index');
     }
 }
